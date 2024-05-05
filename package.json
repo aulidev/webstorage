@@ -2,7 +2,25 @@
   "name": "@aulidev/webstorage",
   "version": "0.0.0",
   "description": "Webstorage to Localstorage",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {}
+  },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "NODE_ENV=production tsup",
     "dev": "tsup --watch",
