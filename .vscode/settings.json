@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "conventionalCommits.scopes": ["package.json"],
+  "cSpell.words": [
+    "aulidev",
+    "biomejs",
+    "Localstorage",
+    "Sumanta",
+    "tsup",
+    "webstorage"
+  ]
+}

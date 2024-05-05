@@ -1,0 +1,44 @@
+{
+  "name": "@aulidev/webstorage",
+  "version": "0.0.0",
+  "description": "Webstorage to Localstorage",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production tsup",
+    "dev": "tsup --watch",
+    "format": "biome check --apply ./src",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest watch",
+    "changeset": "changeset"
+  },
+  "keywords": [
+    "local storage",
+    "webstorage",
+    "storage",
+    "web",
+    "local",
+    "session",
+    "session storage"
+  ],
+  "author": "Sumanta <sumantablog@gmail.com>",
+  "license": "ISC",
+  "repository": "git@github.com:aulidev/webstorage.git",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.2",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.12.8",
+    "@vitest/coverage-v8": "^1.6.0",
+    "tsup": "^8.0.2",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "npm": "^8.1.0"
+  }
+}
