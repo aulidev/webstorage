@@ -1,7 +1,9 @@
-name: CI - Test and Coverage
+name: Release 🚀
 
 on:
   push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -12,12 +14,12 @@ permissions:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
-  test:
+  release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'aulidev/webstorage' && !contains(github.event.head_commit.message, '[skip ci]')}}
+    name: Release 🚀
     runs-on: ubuntu-latest
-    name: Test 🧪
     steps:
       - name: Checkout 🧳
         uses: actions/checkout@v4
@@ -52,12 +54,19 @@ jobs:
       - name: Test 🔫
         run: pnpm run test:coverage
 
-      - name: Report Coverage 📝
-        if: always() # Also generate the report if tests are failing
-        uses: davelosert/vitest-coverage-report-action@v2
+      - name: Build ⏰
+        run: pnpm build
+        env:
+          NODE_ENV: production
 
-      - name: Upload Test Results ⏫
-        uses: actions/upload-artifact@v4
+      - name: Release 🚀
+        id: changesets
+        uses: changesets/action@v1
         with:
-          name: coverage
-          path: coverage/
+          version: pnpm changeset version
+          publish: pnpm changeset publish
+          commit: "ci: :package: release"
+          title: "ci: :package: release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
