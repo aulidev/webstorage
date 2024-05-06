@@ -1,6 +1,6 @@
 {
   "name": "@aulidev/webstorage",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Webstorage to Localstorage",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
