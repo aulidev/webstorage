@@ -10,9 +10,13 @@ export default defineConfig({
     },
   },
   test: {
+    environment: 'happy-dom',
+    globals: true,
     coverage: {
-      provider: 'v8',
+      all: true,
+      provider: 'istanbul',
       reporter: ['text', 'json', 'json-summary', 'html'],
     },
+    
   },
 });

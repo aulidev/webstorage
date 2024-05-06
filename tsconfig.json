@@ -11,6 +11,7 @@
     "paths": {
       "~/*": ["./src/*"]
     },
+    "types": ["vitest/jsdom"],
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,

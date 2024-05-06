@@ -1,1 +1,1 @@
-console.log('start');
+export { localStorage } from './storage';
